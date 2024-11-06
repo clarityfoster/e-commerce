@@ -1,0 +1,98 @@
+// Body
+$body-bg: #fdf7f0;
+
+// Typography
+$primary-font-family: "Lato", serif;
+$secondary-font-family: "Belleza", serif;
+$font-size-base: 1.1rem;
+$line-height-base: 1.6;
+
+// Colors
+$primary-color: #851546;
+$secondary-color: #cfa9ab;
+$tertiary-color: #0f171f;
+$body-bg-color: #fdf7f0;
+
+.primary-color {
+  color: $primary-color;
+}
+.primary-color-bg {
+  background-color: $primary-color;
+}
+.secondary-color {
+  color: $secondary-color;
+}
+.secondary-color-bg {
+  background-color: $secondary-color;
+}
+.tertiary-color {
+  color: $tertiary-color;
+}
+.tertiary-color-bg {
+  background-color: $tertiary-color;
+}
+.belleza-regular {
+  font-family: "Belleza", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.lato-thin {
+  font-family: "Lato", sans-serif;
+  font-weight: 100;
+  font-style: normal;
+}
+
+.lato-light {
+  font-family: "Lato", sans-serif;
+  font-weight: 300;
+  font-style: normal;
+}
+
+.lato-regular {
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.lato-bold {
+  font-family: "Lato", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.lato-black {
+  font-family: "Lato", sans-serif;
+  font-weight: 900;
+  font-style: normal;
+}
+
+.lato-thin-italic {
+  font-family: "Lato", sans-serif;
+  font-weight: 100;
+  font-style: italic;
+}
+
+.lato-light-italic {
+  font-family: "Lato", sans-serif;
+  font-weight: 300;
+  font-style: italic;
+}
+
+.lato-regular-italic {
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  font-style: italic;
+}
+
+.lato-bold-italic {
+  font-family: "Lato", sans-serif;
+  font-weight: 700;
+  font-style: italic;
+}
+
+.lato-black-italic {
+  font-family: "Lato", sans-serif;
+  font-weight: 900;
+  font-style: italic;
+}

@@ -1,0 +1,136 @@
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    color: $primary-color;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-right: 80px;
+    padding-left: 80px;
+    display: flex;
+    align-items: center; 
+    justify-content: space-between;
+}
+.navbar.bac {
+    backdrop-filter: blur(10px);
+}
+.toggle {
+    list-style: none;
+    transition: ease-in .3s;
+    display: none;
+}
+.toggle-cross {
+    display: none;
+}
+.nav-items.heart, .nav-items.profile {
+    display: none;
+}
+.toggle:hover {
+    color: $tertiary-color;
+}
+.logo {
+    text-decoration: none;
+    font-size: 25px;
+    font-weight: bold;
+    color: $primary-color;
+    font-family: $primary-font-family;
+}
+.nav-item1, .nav-item2 {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    list-style: none;
+    gap: 30px;
+    padding: 0;
+    margin: 0;
+}
+.nav-item1 {
+    text-transform: uppercase;
+}
+.nav-items {
+    font-size: 17px;
+    text-decoration: none;
+    color: $primary-color;
+    transition: ease-in .3s;
+}
+.nav-items:hover {
+    color: $tertiary-color;
+}
+li a i {
+    color: $primary-color;
+    transition: ease-in .3s;
+}
+@media(max-width: 769px) {
+    .navbar {
+        padding-right: 40px;
+        padding-left: 40px;
+    }
+    .nav-item1 {
+        position: absolute;
+        flex-direction: column;
+        align-items: start;
+        top: 0px;
+        left: -100%;
+        padding-top: 80px;
+        padding-left: 30px;
+        padding-bottom: 30px;
+        padding-right: 20px;
+        background-color: $body-bg-color;
+        width: 50%;
+        z-index: 1000;
+        transition: ease-in .3s;
+    }
+    .nav-item1.active {
+        left: 0%;
+    }
+    .toggle-cross {
+        display: inline;
+        position: absolute;
+        top: 30px;
+        left: 30px;
+    }
+    .nav-items.heart {
+        position: absolute;
+        top: 30px;
+        left: 75px;
+    }
+    .nav-items.profile {
+        position: absolute;
+        top: 30px;
+        right: 35px;
+    }
+    .toggle {
+        display: inline;
+    }
+    .nav-items.heart, .nav-items.profile {
+        position: absolute;
+        display: inline;
+    }
+    .nav-items.heart1, .nav-items.profile1 {
+        display: none;
+    }
+}
+@media(max-width: 426px) {
+    .navbar {
+        padding-right: 25px;
+        padding-left: 25px;
+    }
+    .nav-item1 {
+        left: -150%;
+        width: 100%;
+    }
+    .toggle-cross {
+        position: absolute;
+        top: 30px;
+        right: 35px;
+    }
+}
+@media(max-width: 321px) {
+    .navbar {
+        padding-right: 15px;
+        padding-left: 15px;
+    }
+}
