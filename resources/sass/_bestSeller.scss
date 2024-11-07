@@ -19,6 +19,7 @@
     gap: 30px;
 }
 .best-seller-card {
+    text-decoration: none;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -98,24 +99,6 @@
     }
     .sport-poster, .sport-poster::before {
         width: 620px;
-        height: 250px;
-    }
-}
-@media (max-width: 1395px) {
-    .best-seller-content {
-        gap: 50px;
-    }
-    .best-seller-img {
-        width: 210px;
-        height: 270px;
-        object-fit: cover;
-        border-radius: 10px;
-    }
-    .two-categories {
-        gap: 30px;
-    }
-    .sport-poster, .sport-poster::before {
-        width: 570px;
         height: 250px;
     }
 }
@@ -301,10 +284,5 @@
     }
     .sport-poster-title2 {
         font-size: 48px;
-    }
-}
-@media (max-width: 425px) {
-    .best-seller-card {
-        align-items: center;
     }
 }
