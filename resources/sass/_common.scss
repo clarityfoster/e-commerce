@@ -1,0 +1,28 @@
+.home-container {
+    width: 92%;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+}
+.custom-container {
+    // background-color: #ccc;
+    width: 92%;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.brand-text {
+    font-family: $secondary-font-family;
+    font-size: 48px;
+    color: $quaternary-color;
+}
+@media (max-width: 769px) {
+    .brand-text {
+        font-size: 35px;
+    }
+    .home-container {
+        justify-content: center;
+    }
+}

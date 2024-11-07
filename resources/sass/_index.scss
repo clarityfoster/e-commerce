@@ -8,13 +8,6 @@
     position: relative;
     padding: 0;
 }
-.custom-container {
-    width: 92%;
-    margin: 0 auto;
-    display: flex;
-    align-items: center;
-    justify-content: end;
-}
 .home-title {
     max-width: 100%;
     text-transform: uppercase;
@@ -63,9 +56,6 @@
     text-transform: capitalize;
 }
 @media(max-width: 769px) {
-    .custom-container {
-        justify-content: center;
-    }
     .home-item {
         align-items: center;
     }

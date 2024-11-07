@@ -1,0 +1,310 @@
+.bestSeller-section {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+}
+.best-seller-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    gap: 50px;
+}
+.best-seller-items {
+    display: grid;
+    grid-template-columns: repeat(5, auto);
+    gap: 30px;
+}
+.best-seller-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.best-seller-card-title {
+    font-size: 18px;
+    font-family: $secondary-font-family;
+    color: $quinary-color;
+}
+.best-seller-card-price {
+    font-size: 16px;
+    font-family: $primary-font-family;
+    font-weight: bold;
+    color: $primary-color;
+}
+.best-seller-img {
+    width: 270px;
+    height: 400px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+.two-categories {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    gap: 35px;
+}
+.sport-poster {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-size: cover;
+    background-position: center;
+    width: 730px;
+    height: 315px;
+    border-radius: 10px;
+    position: relative;
+}
+.sport-poster::before {
+    content: '';
+    background-color: #0000008f;
+    height: 315px;
+    width: 730px;
+    border-radius: 10px;
+    position: absolute;
+}
+.sport-poster-title1, .sport-poster-title2, .shop-now {
+    z-index: 100;
+}
+.sport-poster-title1 {
+    font-size: 18px;
+    font-family: $primary-font-family;
+    color: $white-color;
+}
+.sport-poster-title2 {
+    color: $body-bg-color;
+}
+.sport-poster-title2 {
+    font-family: $secondary-font-family;
+    font-size: 48px;
+}
+.different-colors {
+    color: $primary-color;
+}
+@media (max-width: 1441px) {
+    .best-seller-content {
+        gap: 50px;
+    }
+    .best-seller-img {
+        width: 230px;
+        height: 300px;
+        object-fit: cover;
+        border-radius: 10px;
+    }
+    .two-categories {
+        gap: 30px;
+    }
+    .sport-poster, .sport-poster::before {
+        width: 620px;
+        height: 250px;
+    }
+}
+@media (max-width: 1395px) {
+    .best-seller-content {
+        gap: 50px;
+    }
+    .best-seller-img {
+        width: 210px;
+        height: 270px;
+        object-fit: cover;
+        border-radius: 10px;
+    }
+    .two-categories {
+        gap: 30px;
+    }
+    .sport-poster, .sport-poster::before {
+        width: 570px;
+        height: 250px;
+    }
+}
+@media (max-width: 1395px) {
+    .best-seller-content {
+        gap: 50px;
+    }
+    .best-seller-img {
+        width: 210px;
+        height: 270px;
+        object-fit: cover;
+        border-radius: 10px;
+    }
+    .two-categories {
+        gap: 30px;
+    }
+    .sport-poster, .sport-poster::before {
+        width: 570px;
+        height: 250px;
+    }
+}
+@media (max-width: 1282px) {
+    .best-seller-items {
+        gap: 16px;
+    }
+    .best-seller-img {
+        width: 200px;
+        height: 240px;
+    }
+    .two-categories {
+        gap: 30px;
+    }
+    .sport-poster, .sport-poster::before {
+        width: 518px;
+        height: 250px;
+    }
+}
+@media (max-width: 1174px) {
+    .bestSeller-section {
+        padding-top: 50px;
+        padding-bottom: 50px;
+        height: auto;
+        gap: 40px;
+    }
+    .best-seller-items {
+        grid-template-columns: repeat(4, auto);
+        gap: 27px;
+    }
+    .best-seller-img {
+        width: 210px;
+        height: 250px;
+        object-fit: cover;
+        border-radius: 10px;
+    }
+    .two-categories {
+        gap: 27px;
+    }
+    .sport-poster, .sport-poster::before {
+        width: 450px;
+        height: 200px;
+    }
+}
+@media (max-width: 1025px) {
+    .best-seller-content {
+        gap: 50px;
+    }
+    .best-seller-items {
+        grid-template-columns: repeat(3, auto);
+        gap: 30px;
+    }
+    .best-seller-card-title {
+        font-size: 18px;
+    }
+    .best-seller-card-price {
+        font-size: 16px;
+    }
+    .best-seller-img {
+        width: 280px;
+        height: 350px;
+    }
+    .two-categories {
+        gap: 30px;
+    }
+    .sport-poster, .sport-poster::before {
+        width: 430px;
+        height: 250px;
+    }
+    .sport-poster-title1 {
+        font-size: 18px;
+    }
+    .sport-poster-title2 {
+        font-size: 48px;
+    }
+}
+@media (max-width: 982px) {
+    .best-seller-items {
+        grid-template-columns: repeat(2, auto);
+        gap: 30px;
+    }
+    .best-seller-card-title {
+        font-size: 18px;
+    }
+    .best-seller-card-price {
+        font-size: 16px;
+    }
+    .best-seller-img {
+        width: 300px;
+        height: 380px;
+    }
+    .two-categories {
+        width: 100%;
+        grid-template-columns: repeat(1, auto);
+        gap: 30px;
+    }
+    .sport-poster, .sport-poster::before {
+        width: 100%;
+        height: 250px;
+    }
+    .sport-poster-title1 {
+        font-size: 18px;
+    }
+    .sport-poster-title2 {
+        font-size: 48px;
+    }
+}
+@media (max-width: 695px) {
+    .best-seller-items {
+        grid-template-columns: repeat(2, auto);
+        gap: 30px;
+    }
+    .best-seller-card-title {
+        font-size: 18px;
+    }
+    .best-seller-card-price {
+        font-size: 16px;
+    }
+    .best-seller-img {
+        width: 250px;
+        height: 310px;
+    }
+    .two-categories {
+        width: 100%;
+        grid-template-columns: repeat(1, auto);
+        gap: 30px;
+    }
+    .sport-poster, .sport-poster::before {
+        width: 100%;
+        height: 250px;
+    }
+    .sport-poster-title1 {
+        font-size: 18px;
+    }
+    .sport-poster-title2 {
+        font-size: 48px;
+    }
+}
+@media (max-width: 584px) {
+    .best-seller-items {
+        grid-template-columns: repeat(1, auto);
+        gap: 30px;
+    }
+    .best-seller-card-title {
+        font-size: 18px;
+    }
+    .best-seller-card-price {
+        font-size: 16px;
+    }
+    .best-seller-img {
+        width: 250px;
+        height: 300px;
+    }
+    .two-categories {
+        width: 100%;
+        grid-template-columns: repeat(1, auto);
+        gap: 30px;
+    }
+    .sport-poster, .sport-poster::before {
+        width: 100%;
+        height: 250px;
+    }
+    .sport-poster-title1 {
+        font-size: 18px;
+    }
+    .sport-poster-title2 {
+        font-size: 48px;
+    }
+}
+@media (max-width: 425px) {
+    .best-seller-card {
+        align-items: center;
+    }
+}

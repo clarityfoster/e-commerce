@@ -1,17 +1,20 @@
 // Body
-$body-bg: #fdf7f0;
+$body-bg: #f9f9f9;
 
 // Typography
 $primary-font-family: "Lato", serif;
 $secondary-font-family: "Belleza", serif;
 $font-size-base: 1.1rem;
-$line-height-base: 1.6;
+$line-height-base: 1.6; 
 
 // Colors
 $primary-color: #851546;
 $secondary-color: #cfa9ab;
 $tertiary-color: #0f171f;
-$body-bg-color: #fdf7f0;
+$quaternary-color: #3F3D56;
+$quinary-color: #222;
+$body-bg-color: #f9f9f9;
+$white-color: #fff;
 
 .primary-color {
   color: $primary-color;
