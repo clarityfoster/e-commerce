@@ -24,7 +24,7 @@
                         <h5 class="detail-size-title">Size</h5>
                         <div class="detail-size">
                             @foreach (json_decode($product->size) as $size)
-                                <label for="size_{{ $size }}" class="btn btn-outline-secondary">
+                                <label for="size_{{ $size }}" class="btn btn-outline-secondary mb-1">
                                     <input type="radio" id="size_{{ $size }}" name="size"
                                         value="{{ $size }}" class="detail-size-option">{{ $size }}
                                 </label>
@@ -42,4 +42,5 @@
         </div>
     </div>
     @include('share.footer')
+    @include('share.topBtn')
 @endsection
