@@ -5,7 +5,10 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class Product extends Model
+class Category extends Model
 {
     use HasFactory;
+    public function bestSeller() {
+        return $this->belongsTo('App\Models\BestSeller');
+    }
 }

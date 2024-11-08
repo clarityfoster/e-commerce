@@ -21,6 +21,7 @@
 .best-seller-card {
     text-decoration: none;
     display: flex;
+    align-items: start;
     flex-direction: column;
     justify-content: center;
 }
@@ -72,10 +73,10 @@
 .sport-poster-title1 {
     font-size: 18px;
     font-family: $primary-font-family;
-    color: $white-color;
+    color: $primary-color;
 }
 .sport-poster-title2 {
-    color: $body-bg-color;
+    color: $white-color;
 }
 .sport-poster-title2 {
     font-family: $secondary-font-family;
@@ -265,6 +266,9 @@
     }
     .best-seller-card-price {
         font-size: 16px;
+    }
+    .best-seller-card {
+        align-items: center;
     }
     .best-seller-img {
         width: 250px;

@@ -30,6 +30,7 @@
             {{ config('app.name', 'Laravel') }}
         </a>
         <ul class="nav-item1">
+            <li><a href="{{ route('allProducts') }}" class="nav-items">All Products</a> </li> 
             <li><a href="" class="nav-items">Men</a> </li> 
             <li><a href="" class="nav-items">Women</a></li>
             <li><a href="" class="nav-items">Kids</a></li>
