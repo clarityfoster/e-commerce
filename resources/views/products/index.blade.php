@@ -1,55 +1,43 @@
 @extends('layouts.app')
 @section('content')
-    <div id="carouselExampleIndicators" class="carousel slide">
-        <div class="carousel-indicators">
-            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
-                aria-current="true" aria-label="Slide 1"></button>
-            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
-                aria-label="Slide 2"></button>
-        </div>
-        <div class="carousel-inner">
-            <div class="carousel-item active">
-                <div class="home-slider" style="background-image: url({{ asset('img/home/home2.webp') }})">
-                    <div class="home-container">
-                        <div class="home-item">
-                            <img src="{{ asset('img/home/home-item2.webp') }}" alt="" class="home-item-img">
-                            <span class="item-name">Oversized Cotton Hoodie</span>
-                            <b class="item-price">20,000 Kyats</b>
-                            <a href="" class="shop-now">Shop Now</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="carousel-item">
-                <div class="home-slider" style="background-image: url({{ asset('img/home/home1.avif') }})">
-                    <div class="home-container">
-                        <div class="home-item">
-                            <img src="{{ asset('img/home/home-item1.avif') }}" alt="" class="home-item-img">
-                            <span class="item-name">Oversized Cotton Hoodie</span>
-                            <b class="item-price">20,000 Kyats</b>
-                            <a href="" class="shop-now">Shop Now</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
-            data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
-            data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-        </button>
+<div id="carouselExampleIndicators" class="carousel slide">
+    <div class="carousel-indicators">
+        @foreach ($home as $index => $item)
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="{{ $index }}" class="{{ $index == 0 ? 'active' : '' }}" aria-label="Slide {{ $index + 1 }}"></button>
+        @endforeach
     </div>
+    <div class="carousel-inner">
+        @foreach ($home as $index => $item)
+            <div class="carousel-item {{ $index == 0 ? 'active' : '' }}">
+                <div class="home-slider" style="background-image: url({{ asset('storage/' . $item->bac_img) }})">
+                    <div class="home-container">
+                        <div class="home-item">
+                            <img src="{{ asset('storage/' . $item->img) }}" alt="" class="home-item-img">
+                            <span class="item-name">{{ $item->name }}</span>
+                            <b class="item-price">{{ number_format($item->price) }} Kyats</b>
+                            <a href="{{ route('detail', ['id' => $item->product_id]) }}" class="shop-now">Shop Now</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        @endforeach
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+    </button>
+</div>
+
     <div class="bestSeller-section custom-container" id="bestSellers">
         <h1 class="brand-text">Best Sellers</h1>
         <div class="best-seller-content">
             <div class="best-seller-items">
                 @foreach ($bestSeller as $best)
-                    <a href="" class="best-seller-card">
+                    <a href="{{ route('detail', ['id' => $best->product_id]) }}" class="best-seller-card">
                         <img src="{{ asset('storage/' . $best->best_seller_img) }}" alt="" class="best-seller-img">
                         <h3 class="cate-title">
                             {{ $best->name }}
@@ -62,19 +50,13 @@
             </div>
             <div class="two-categories">
                 @foreach ($twoStyles as $style)
-                    <div class="sport-poster" style="background-image: url({{ asset('storage/' . $style->twostyles_img )}})">
+                    <div class="sport-poster"
+                        style="background-image: url({{ asset('storage/' . $style->twostyles_img) }})">
                         <h4 class="sport-poster-title1">{{ $style->title1 }}</h4>
                         <h1 class="sport-poster-title2">{{ $style->title2 }}</h1>
                         <a href="" class="shop-now">Shop Now</a>
                     </div>
                 @endforeach
-                {{-- <div class="sport-poster"
-                    style="background-image: url({{ asset('img/bestSeller/streetstyle-poster.webp') }})">
-                    <h4 class="sport-poster-title1">Find your favourite</h4>
-                    <h1 class="sport-poster-title2">St<span class="different-colors">r</span>e<span
-                            class="different-colors">e</span>t<span class="different-colors">St</span>yle </h1>
-                    <a href="" class="shop-now">Shop Now</a>
-                </div> --}}
             </div>
         </div>
     </div>
@@ -96,24 +78,16 @@
                 <h3 class="cate-title">Click to shop the looks you love!</h3>
             </div>
             <div class="click-toshop-content">
-                <a href="" class="click-toshop-card">
-                    <img src="{{ asset('img/cts/cts.avif') }}" alt="" class="cts-img">
-                    <h5 class="cate-title mt-2">@brighter</h5>
-                </a>
-                <a href="" class="click-toshop-card">
-                    <img src="{{ asset('img/cts/cts1.avif') }}" alt="" class="cts-img">
-                    <h5 class="cate-title mt-2">@stella_sky</h5>
-                </a>
-                <a href="" class="click-toshop-card">
-                    <img src="{{ asset('img/cts/cts2.avif') }}" alt="" class="cts-img">
-                    <h5 class="cate-title mt-2">@elena</h5>
-                </a>
-                <a href="" class="click-toshop-card">
-                    <img src="{{ asset('img/cts/cts3.avif') }}" alt="" class="cts-img">
-                    <h5 class="cate-title mt-2">@sonia</h5>
-                </a>
+                @foreach ($looks as $look)
+                    <a href="{{ route('detail', ['id' => $look->product_id]) }}" class="click-toshop-card">
+                        <img src="{{ asset('storage/' . $look->looks_img) }}" alt="{{ $look->model_name }}"
+                            class="cts-img">
+                        <h5 class="cate-title mt-2">{{ $look->model_name }}</h5>
+                    </a>
+                @endforeach
             </div>
         </div>
     </div>
+    @include('share.topBtn')
     @include('share.footer')
 @endsection

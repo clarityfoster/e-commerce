@@ -6,6 +6,9 @@
                 <h4 class="primary-color">Shopping</h4>
             </div>
             <div class="footer-links">
+                @if (!Request::routeIs('allProducts'))
+                    <a href="{{ route('allProducts') }}">All Products</a>
+                @endif
                 <a href="">Men</a>
                 <a id="ability" href="">Women</a>
                 <a href="">Kids</a>

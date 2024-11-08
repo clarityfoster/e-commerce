@@ -4,8 +4,8 @@
         <div class="best-seller-content">
             <div class="best-seller-items">
                 @foreach ($products as $product)
-                    <a href="" class="best-seller-card">
-                        <img src="{{ asset('storage/' . $product->product_img) }}" alt="" class="best-seller-img">
+                    <a href="{{ route('detail', ['id' => $product->id]) }}" class="best-seller-card">
+                        <img src="{{ asset('storage/' . $product->product_img) }}" alt="{{ $product->name }}" class="best-seller-img">
                         <h3 class="cate-title">
                             {{ $product->name }}
                         </h3>
@@ -18,4 +18,5 @@
         </div>
     </div>
     @include('share.footer')
+    @include('share.topBtn')
 @endsection

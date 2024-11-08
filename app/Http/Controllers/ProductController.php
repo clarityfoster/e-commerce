@@ -8,6 +8,8 @@ use App\Models\Gender;
 use App\Models\BestSeller;
 use App\Models\TwoStyles;
 use App\Models\Product;
+use App\Models\Looks;
+use App\Models\Home;
 
 class ProductController extends Controller
 {
@@ -16,11 +18,15 @@ class ProductController extends Controller
         $gender = Gender::all();
         $bestSeller = BestSeller::all();
         $twoStyles = TwoStyles::all();
+        $home = Home::all();
+        $looks = Looks::all();
         return view('products.index', [
             'cate' => $cate,
             'gender' => $gender,
             'bestSeller' => $bestSeller,
             'twoStyles' => $twoStyles,
+            'looks' => $looks,
+            'home' => $home,
         ]);
     }
     public function allProducts() {
@@ -33,6 +39,12 @@ class ProductController extends Controller
             'gender' => $gender,
             'bestSeller' => $bestSeller,
             'products' => $products,
+        ]);
+    }
+    public function detail($id) {
+        $products = Product::find($id);
+        return view('products.detail', [
+            'product' => $products
         ]);
     }
 }

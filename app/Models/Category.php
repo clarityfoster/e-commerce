@@ -11,4 +11,7 @@ class Category extends Model
     public function bestSeller() {
         return $this->belongsTo('App\Models\BestSeller');
     }
+    public function products() {
+        return $this->belongsTo('App\Models\Product');
+    }
 }

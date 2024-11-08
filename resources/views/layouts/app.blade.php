@@ -30,8 +30,10 @@
             {{ config('app.name', 'Laravel') }}
         </a>
         <ul class="nav-item1">
-            <li><a href="{{ route('allProducts') }}" class="nav-items">All Products</a> </li> 
-            <li><a href="" class="nav-items">Men</a> </li> 
+            @if (!Request::routeIs('allProducts'))
+                <li><a href="{{ route('allProducts') }}" class="nav-items">All Products</a> </li>
+            @endif
+            <li><a href="" class="nav-items">Men</a> </li>
             <li><a href="" class="nav-items">Women</a></li>
             <li><a href="" class="nav-items">Kids</a></li>
             <li><a href="" class="nav-items">Accessories</a></li>
@@ -126,6 +128,7 @@
         </main>
     </div>
 </body>
+
 </html>
 <script>
     const toggle = document.querySelector('.toggle');
@@ -142,7 +145,7 @@
     const navbar = document.querySelector('.navbar');
     window.addEventListener('scroll', function(e) {
         e.preventDefault();
-        if(window.scrollY > 50) {
+        if (window.scrollY > 50) {
             navbar.classList.add('bac');
         } else {
             navbar.classList.remove('bac');

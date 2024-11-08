@@ -1,0 +1,120 @@
+.detail-section  {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+.detail-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.detail-div {
+    display: flex;
+    align-items: start;
+    justify-content: center;
+    gap: 130px;
+}
+.detail-img {
+    width: 450px;
+    height: 600px;
+    border-radius: 10px;
+    object-fit: cover;
+}
+.detail-content {
+    display: flex;
+    flex-direction: column;
+    max-width: 500px;
+    gap: 20px;
+}
+.detail-title {
+    font-size: 40px;
+    font-family: $secondary-font-family;
+    color: $quaternary-color;
+}
+.detail-price {
+    font-size: 23px;
+    font-family: $primary-font-family;
+    color: $primary-color;
+}
+.detail-des {
+    font-size: 15px;
+    color: $quaternary-color;
+}
+.detail-size {
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+}
+.add-cart {
+    text-decoration: none;
+    width: 100%;
+    height: 45px;
+    background-color: $quinary-color;
+}
+.primary-color-bg {
+  background-color: $primary-color;
+}
+.detail-size-title {
+    font-size: 16px;
+    color: $quaternary-color;
+}
+.detail-size {
+    display: inline-block;
+    position: relative;
+}
+.detail-size-option {
+    display: none;
+}
+.quantity-selector {
+    display: flex;
+    gap: 5px;
+}
+.detail-size-label {
+    display: inline-block;
+    padding: 5px 15px;
+    background-color: transparent;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+.detail-size-option:checked + .detail-size-label {
+    background-color: $primary-color; 
+    border-color: $primary-color;
+    color: white;
+}
+.form-control {
+    border-color: #666;
+    width: 80px;
+    text-align: center;
+}
+.form-control::-webkit-outer-spin-button,
+.form-control::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+.form-control {
+    -moz-appearance: textfield; /* Firefox */
+}
+.btn.btn-secondary {
+    transition: ease-in .3s;
+}
+.btn.btn-secondary:hover {
+    background-color: $primary-color;
+}
+.btn.btn-outline-secondary {
+    transition: ease-in .3s;
+}
+.btn.btn-outline-secondary:hover {
+    background-color: $primary-color;
+    border: 1.1px solid $primary-color;
+}
+.btn.btn-outline-secondary.mt-4 {
+    background-color: $primary-color;
+    border: none;
+    transition: ease-in .3s;
+}
+.btn.btn-outline-secondary.mt-4:hover {
+    background-color: $quaternary-color;
+}
+
