@@ -3,6 +3,14 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Category;
+use App\Models\Gender;
+use App\Models\BestSeller;
+use App\Models\TwoStyles;
+use App\Models\Product;
+use App\Models\Looks;
+use App\Models\Home;
+
 
 class HomeController extends Controller
 {
@@ -23,6 +31,21 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $cate = Category::all();
+        $gender = Gender::all();
+        $bestSeller = BestSeller::all();
+        $twoStyles = TwoStyles::all();
+        $home = Home::all();
+        $looks = Looks::all();
+        $style = TwoStyles::all();
+        return view('home', [
+            'cate' => $cate,
+            'gender' => $gender,
+            'bestSeller' => $bestSeller,
+            'twoStyles' => $twoStyles,
+            'looks' => $looks,
+            'home' => $home,
+            'style' => $style,
+        ]);
     }
 }

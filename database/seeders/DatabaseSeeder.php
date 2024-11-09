@@ -389,7 +389,7 @@ class DatabaseSeeder extends Seeder
             [
                 'name' => 'Porcelain Mug',
                 'description' => 'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
-                'size' => ['S' , 'M' , 'L'],
+                'size' => NULL,
                 'price' => 8000,
                 'category_id' => NULL,
                 'bestseller_id' => NULL,
@@ -402,7 +402,7 @@ class DatabaseSeeder extends Seeder
             [
                 'name' => '2-pack Porcelain Espresso Cups',
                 'description' => 'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
-                'size' => ['S' , 'M' , 'L'],
+                'size' => NULL,
                 'price' => 7500,
                 'category_id' => NULL,
                 'bestseller_id' => NULL,
@@ -415,7 +415,7 @@ class DatabaseSeeder extends Seeder
             [
                 'name' => 'Snowman Advent Calendar',
                 'description' => 'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
-                'size' => ['S' , 'M' , 'L'],
+                'size' => NULL,
                 'price' => 6500,
                 'category_id' => NULL,
                 'home_id' => NULL,

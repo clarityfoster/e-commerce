@@ -24,6 +24,5 @@ class AppServiceProvider extends ServiceProvider
         View::composer('*', function($view) {
             $view->with('gender', Gender::all());
         });
-
     }
 }

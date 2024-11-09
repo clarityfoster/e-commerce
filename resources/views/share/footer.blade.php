@@ -6,13 +6,9 @@
                 <h4 class="primary-color">Shopping</h4>
             </div>
             <div class="footer-links">
-                @if (!Request::routeIs('allProducts'))
-                    <a href="{{ route('allProducts') }}">All Products</a>
-                @endif
-                <a href="">Men</a>
-                <a id="ability" href="">Women</a>
-                <a href="">Kids</a>
-                <a href="">Accessories</a>
+                <a href="">Delievery</a>
+                <a href="">About us</a>
+                <a href="">Contact</a>
             </div>
             <div class="footer-social">
                 <a href="https://github.com/clarityfoster"><i class="bi bi-github"></i></a>

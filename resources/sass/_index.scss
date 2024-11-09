@@ -29,9 +29,11 @@
 }
 .item-name {
     font-family: $secondary-font-family;
-}
-.item-name {
     font-size: 18px;
+}
+.item-price {
+    font-family: $primary-font-family;
+    color: $primary-color;
 }
 .shop-now {
     background-color: $primary-color;

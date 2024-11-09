@@ -34,7 +34,11 @@
                 <li><a href="{{ route('allProducts') }}" class="nav-items">All Products</a> </li>
             @endif
             @foreach ($gender as $gender)
-                <li><a href="{{ route('gender', ['id' => $gender->id]) }}" class="nav-items">{{ $gender->gender }}</a> </li>
+                <li>
+                    <a href="{{ route('gender', ['id' => $gender->id]) }}" class="nav-items">
+                        {{ $gender->gender }}
+                    </a>
+                </li>
             @endforeach
             <li class="toggle-cross"><i class="bi bi-x-lg"></i></li>
             <li class="nav-items heart">
@@ -120,6 +124,17 @@
                 </ul>
             </li>
         </ul>
+        <div class="search-box">
+            <div class="search-content">
+                <h3 class="search-title">What're you looking for?</h3>
+                <form action="" class="search-form">
+                    @csrf
+                    <input type="text" class="search-input" placeholder="Search products">
+                    <button type="submit" class="search-btn"><i class="bi bi-search"></i></button>
+                </form>
+                <span class="search-close"><i class="bi bi-x-lg fs-4"></i></span>
+            </div>
+        </div>
     </nav>
     <div id="app">
         <main>
@@ -130,24 +145,39 @@
 
 </html>
 <script>
-    const toggle = document.querySelector('.toggle');
-    const navItem = document.querySelector('.nav-item1');
-    const close = document.querySelector('.toggle-cross');
-    toggle.addEventListener('click', function(event) {
-        event.preventDefault();
-        navItem.classList.add('active');
-    })
-    close.addEventListener('click', function(event) {
-        event.preventDefault();
-        navItem.classList.remove('active');
-    })
-    const navbar = document.querySelector('.navbar');
-    window.addEventListener('scroll', function(e) {
-        e.preventDefault();
-        if (window.scrollY > 50) {
-            navbar.classList.add('bac');
-        } else {
-            navbar.classList.remove('bac');
-        }
+    document.addEventListener('DOMContentLoaded', function() {
+        const toggle = document.querySelector('.toggle');
+        const navItem = document.querySelector('.nav-item1');
+        const close = document.querySelector('.toggle-cross');
+        toggle.addEventListener('click', function(event) {
+            event.preventDefault();
+            navItem.classList.add('active');
+        })
+        close.addEventListener('click', function(event) {
+            event.preventDefault();
+            navItem.classList.remove('active');
+        })
+        const navbar = document.querySelector('.navbar');
+        window.addEventListener('scroll', function(e) {
+            e.preventDefault();
+            if (window.scrollY > 50) {
+                navbar.classList.add('bac');
+            } else {
+                navbar.classList.remove('bac');
+            }
+        })
+        const openSearch = document.querySelector('.bi.bi-search');
+        const searchBox = document.querySelector('.search-box');
+        const closeSearch = document.querySelector('.search-close');
+
+        openSearch.addEventListener('click', function(event) {
+            event.preventDefault();
+            searchBox.classList.add('open');
+        });
+
+        closeSearch.addEventListener('click', function(event) {
+            event.preventDefault();
+            searchBox.classList.remove('open');
+        });
     })
 </script>

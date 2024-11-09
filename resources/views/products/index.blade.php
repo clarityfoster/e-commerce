@@ -15,7 +15,7 @@
                             <div class="home-item">
                                 <img src="{{ asset('storage/' . $item->img) }}" alt="" class="home-item-img">
                                 <span class="item-name">{{ $item->name }}</span>
-                                <b class="item-price">{{ number_format($item->price) }} Kyats</b>
+                                <b class="item-price">MMK {{ number_format($item->price) }}</b>
                                 <a href="{{ route('detail', ['id' => $item->product_id]) }}" class="shop-now">Shop Now</a>
                             </div>
                         </div>
