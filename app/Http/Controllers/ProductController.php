@@ -20,6 +20,7 @@ class ProductController extends Controller
         $twoStyles = TwoStyles::all();
         $home = Home::all();
         $looks = Looks::all();
+        $style = TwoStyles::all();
         return view('products.index', [
             'cate' => $cate,
             'gender' => $gender,
@@ -27,6 +28,7 @@ class ProductController extends Controller
             'twoStyles' => $twoStyles,
             'looks' => $looks,
             'home' => $home,
+            'style' => $style,
         ]);
     }
     public function allProducts() {
@@ -45,6 +47,30 @@ class ProductController extends Controller
         $products = Product::find($id);
         return view('products.detail', [
             'product' => $products
+        ]);
+    }
+    public function category($id) {
+        $category = Category::find($id);
+        $products = Product::where('category_id', $category->id)->get();
+        return view('products.categories', [
+            'products' => $products,
+            'category' => $category,
+        ]);
+    }
+    public function gender($id) {
+        $gender = Gender::find($id);
+        $products = Product::where('gender_id', $gender->id)->get();
+        return view('products.gender', [
+            'products' => $products,
+            'gender' => $gender,
+        ]);
+    }
+    public function style($id) {
+        $style = TwoStyles::find($id);
+        $products = Product::where('styles_id', $style->id)->get();
+        return view('products.styles', [
+            'style' => $style,
+            'products' => $products,
         ]);
     }
 }

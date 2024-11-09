@@ -19,6 +19,7 @@ return new class extends Migration
             $table->integer('price');
             $table->integer('category_id')->nullable();
             $table->integer('bestseller_id')->nullable();
+            $table->integer('styles_id')->nullable();
             $table->integer('looks_id')->nullable();
             $table->integer('home_id')->nullable();
             $table->integer('gender_id')->nullable();

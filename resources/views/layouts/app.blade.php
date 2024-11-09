@@ -33,10 +33,9 @@
             @if (!Request::routeIs('allProducts'))
                 <li><a href="{{ route('allProducts') }}" class="nav-items">All Products</a> </li>
             @endif
-            <li><a href="" class="nav-items">Men</a> </li>
-            <li><a href="" class="nav-items">Women</a></li>
-            <li><a href="" class="nav-items">Kids</a></li>
-            <li><a href="" class="nav-items">Accessories</a></li>
+            @foreach ($gender as $gender)
+                <li><a href="{{ route('gender', ['id' => $gender->id]) }}" class="nav-items">{{ $gender->gender }}</a> </li>
+            @endforeach
             <li class="toggle-cross"><i class="bi bi-x-lg"></i></li>
             <li class="nav-items heart">
                 <a href=""><i class="bi bi-heart"></i></a>
