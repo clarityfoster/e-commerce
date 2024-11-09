@@ -1,19 +1,19 @@
 @extends('layouts.app')
 @section('content')
     <div class="detail-section custom-container">
-        @if (session('addToCart'))
-            <div class="alert alert-success">
-                {{ session('addToCart') }}
-            </div>
-        @endif
         <div class="detail-div">
             <img class="detail-img" src="{{ asset('storage/' . $product->product_img) }}" alt="{{ $product->name }}">
             <div class="detail-content">
+                @if (session('addToCart'))
+                    <div class="alert alert-success">
+                        {{ session('addToCart') }}
+                    </div>
+                @endif
                 <div>
                     <div class="detail-header">
                         <div class="detail-head">
                             <h3 class="detail-title">{{ $product->name }}</h3>
-                            <h3 class="detail-price">MMK {{ $product->price }}</h3>
+                            <h3 id="price" class="detail-price">MMK {{ $product->price }}</h3>
                         </div>
                         <a href="" class="btn btn-outline-secondary"><i class="bi bi-heart"></i></a>
                     </div>
@@ -34,7 +34,8 @@
                                 value="1">
                             <button id="plus" class="btn btn-outline-secondary">+</button>
                         </div>
-                        <button type="submit" class="btn btn-outline-secondary mt-4 text-white w-100">Add To Cart</button>
+                        <button id="price-btn" type="submit" class="btn btn-outline-secondary mt-4 text-white w-100">Add To
+                            Cart - MMK {{ $product->price }}</button>
                     </form>
                 </div>
             </div>
@@ -45,22 +46,35 @@
 @endsection
 <script>
     document.addEventListener('DOMContentLoaded', function() {
-    const quantityInput = document.getElementById("quantity");
-    const minusButton = document.getElementById("minus");
-    const plusButton = document.getElementById("plus");
+        const quantityInput = document.getElementById("quantity");
+        const minusButton = document.getElementById("minus");
+        const plusButton = document.getElementById("plus");
+        const currentPrice = document.getElementById('price');
+        const addToCart = document.getElementById('price-btn');
 
-    minusButton.addEventListener("click", (event) => {
-        event.preventDefault();
-        let quantity = parseInt(quantityInput.value, 10);
-        if (quantity > 1) {
-            quantityInput.value = quantity - 1;
+        const basePrice = parseFloat(currentPrice.textContent.replace('MMK', '').trim());
+
+        function update() {
+            const quantity = parseInt(quantityInput.value, 10);
+            const totalPrice = basePrice * quantity;
+            addToCart.textContent = `Add To Cart - MMK ${totalPrice}`;
         }
-    });
 
-    plusButton.addEventListener("click", (event) => {
-        event.preventDefault(); 
-        let quantity = parseInt(quantityInput.value, 10);
-        quantityInput.value = quantity + 1;
+        minusButton.addEventListener("click", (event) => {
+            event.preventDefault();
+            let quantity = parseInt(quantityInput.value, 10);
+            if (quantity > 1) {
+                quantityInput.value = quantity - 1;
+                update();
+            }
+        });
+
+        plusButton.addEventListener("click", (event) => {
+            event.preventDefault();
+            let quantity = parseInt(quantityInput.value, 10);
+            quantityInput.value = quantity + 1;
+            update();
+        });
+        update();
     });
-});
 </script>

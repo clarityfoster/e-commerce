@@ -88,7 +88,7 @@
                 <a href=""><i class="bi bi-heart"></i></a>
             </li>
             <li class="nav-items">
-                <a href=""><i class="bi bi-bag"></i></a>
+                <a href="{{ route('showCart') }}"><i class="bi bi-bag"></i></a>
             </li>
             <li class="nav-items profile1 dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
