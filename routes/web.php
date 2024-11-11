@@ -14,6 +14,7 @@ Route::get('/products/style/{id}', [ProductController::class, 'style'])->name('s
 
 Route::get('/products/cart', [CartController::class, 'showCart'])->name('showCart');
 Route::post('/products/cart/add', [CartController::class, 'add'])->name('addToCart');
+Route::get('/products/cart/delete/{id}', [CartController::class, 'delete'])->name('cartDelete');
 
 Route::get('/profile', [ProfileController::class, 'account'])->name('account');
 Auth::routes();

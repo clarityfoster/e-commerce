@@ -14,10 +14,12 @@ class CartController extends Controller
         $userId = Auth::id();
         $cartItems = Cart::where('user_id', $userId)->get();
         $totalPrice = $cartItems->sum('price');
+        $totalQuantity = $cartItems->sum('quantity');
         return view('products.cart', [
             'cartItems' => $cartItems,
             'product' => $product,
             'totalPrice' => $totalPrice,
+            'totalQuantity' => $totalQuantity,                                               
         ]);
     }
     public function add(Request $request) {
@@ -41,6 +43,15 @@ class CartController extends Controller
             $cartItem->user_id = $userId;
             $cartItem->save();
         }
-        return redirect()->back()->with('addToCart', 'Product added to cart!');
+        $totalQuantity = Cart::where('user_id', $userId)->sum('quantity');
+        return redirect()->back()->with([
+            'addToCart' => 'Product added to cart!',
+            'totalQuantity' => $totalQuantity,
+        ]);
+    }
+    public function delete($id) {
+        $cartItem = Cart::find($id);
+        $cartItem->delete();
+        return redirect()->back()->with('cartItemDeleted', 'An item has been deleted successfully.');
     }
 }

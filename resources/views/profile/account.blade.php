@@ -1,4 +1,4 @@
-Welcome to profile page!
+Welcome to profile page, {{ $user->name }}!
 
 <a class="dropdown-item" href="{{ route('logout') }}"
     onclick="event.preventDefault();

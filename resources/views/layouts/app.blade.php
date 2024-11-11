@@ -88,8 +88,16 @@
                 <a href=""><i class="bi bi-heart"></i></a>
             </li>
             <li class="nav-items">
-                <a href="{{ route('showCart') }}"><i class="bi bi-bag"></i></a>
+                <a href="{{ route('showCart') }}" class="position-relative">
+                    <i class="bi bi-bag"></i>
+                    @if ($totalQuantity > 0)
+                        <span class="position-absolute top-0 start-100 translate-middle badge rounded-circle bg-danger">
+                            {{ $totalQuantity }}
+                        </span>
+                    @endif
+                </a>
             </li>
+
             <li class="nav-items profile1 dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                     data-bs-toggle="dropdown" aria-expanded="false">
