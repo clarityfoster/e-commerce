@@ -85,7 +85,7 @@
                 <a href=""><i class="bi bi-search"></i></a>
             </li>
             <li class="nav-items heart1">
-                <a href=""><i class="bi bi-heart"></i></a>
+                <a href="{{ route('showWish') }}"><i class="bi bi-heart"></i></a>
             </li>
             <li class="nav-items">
                 <a href="{{ route('showCart') }}" class="position-relative">

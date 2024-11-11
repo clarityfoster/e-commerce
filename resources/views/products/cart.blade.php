@@ -1,21 +1,21 @@
-@extends('layouts.app')
-@section('content')
-    <div class="cart-section">
-        <h1 class="brand-text">Shopping Cart</h1>
-        @if ($cartItems->isEmpty())
-            <p>Your cart is empty.</p>
-        @else
-            <form action="" class="check-out-form">
-                @csrf
-                <div class="cart-items">
-                    @foreach ($cartItems as $item)
-                        <div class="cart-item">
-                            <span class="cart-index">{{ $item->id }}</span>
-                            <img src="{{ asset('storage/' . $item->product_img) }}" alt="" class="cart-img">
-                            <div class="cart-content">
-                                <p class="cart-item-product">Product:<span
-                                        class="cart-span">{{ $item->product_name }}</span></p>
-                                <div class="cart-quantity">
+@if ($cartItems->isEmpty())
+    @include('share.emptyCart');
+@else
+    @extends('layouts.app')
+        @section('content')
+            <div class="cart-section">
+                <h1 class="brand-text">Shopping Cart</h1>
+                <form action="" class="check-out-form">
+                    @csrf
+                    <div class="cart-items">
+                        @foreach ($cartItems as $item)
+                            <div class="cart-item">
+                                <img src="{{ asset('storage/' . $item->product_img) }}" alt="" class="cart-img">
+                                <div class="cart-content">
+                                    <p class="cart-item-product">Product:<span
+                                            class="cart-span">{{ $item->product_name }}</span>
+                                    </p>
+                                    {{-- <div class="cart-quantity">
                                     <p class="cart-item-quantity">Quantity:</p>
                                     <div class="quantity-selector">
                                         <button id="minus" class="btn btn-outline-secondary cart">-</button>
@@ -23,22 +23,23 @@
                                             min="1" value="{{ $item->quantity }}">
                                         <button id="plus" class="btn btn-outline-secondary cart">+</button>
                                     </div>
+                                </div> --}}
+                                    <p class="cart-item-price">Price:<span class="cart-span">MMK
+                                            {{ number_format($item->price) }}</span></p>
                                 </div>
-                                <p class="cart-item-price">Price:<span class="cart-span">MMK
-                                        {{ number_format($item->price) }}</span></p>
+                                <a href="{{ route('cartDelete', ['id' => $item->id]) }}" class="cart-remove"><i
+                                        class="bi bi-trash3-fill"></i></a>
                             </div>
-                            <a href="{{ route('cartDelete', ['id' => $item->id]) }}" class="cart-remove"><i class="bi bi-trash3-fill"></i></a>
-                        </div>
-                    @endforeach
-                </div>
-                <p class="cart-item-product mt-3">Total Price:
-                    <span class="cart-span"><b>MMK {{ number_format($totalPrice) }}</b></span>
-                </p>
-                <button class="cart-checkOut">Check Out</button>
-            </form>
-        @endif
-    </div>
-@endsection
+                        @endforeach
+                    </div>
+                    <p class="cart-item-product mt-3">Total Price:
+                        <span class="cart-span"><b>MMK {{ number_format($totalPrice) }}</b></span>
+                    </p>
+                    {{-- <button class="cart-checkOut">Check Out</button> --}}
+                </form>
+            </div>
+        @endsection
+@endif
 
 <script>
     document.addEventListener('DOMContentLoaded', function() {

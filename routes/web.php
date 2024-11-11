@@ -12,9 +12,12 @@ Route::get('/products/category/{id}', [ProductController::class, 'category'])->n
 Route::get('/products/gender/{id}', [ProductController::class, 'gender'])->name('gender');
 Route::get('/products/style/{id}', [ProductController::class, 'style'])->name('style');
 
-Route::get('/products/cart', [CartController::class, 'showCart'])->name('showCart');
-Route::post('/products/cart/add', [CartController::class, 'add'])->name('addToCart');
-Route::get('/products/cart/delete/{id}', [CartController::class, 'delete'])->name('cartDelete');
+Route::get('/wishes', [ProductController::class, 'showWish'])->name('showWish');
+
+Route::get('/carts', [CartController::class, 'showCart'])->name('showCart');
+Route::post('/carts/add', [CartController::class, 'add'])->name('addToCart');
+Route::get('/carts/delete/{id}', [CartController::class, 'delete'])->name('cartDelete');
+
 
 Route::get('/profile', [ProfileController::class, 'account'])->name('account');
 Auth::routes();
