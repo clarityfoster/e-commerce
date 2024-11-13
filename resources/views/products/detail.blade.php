@@ -4,18 +4,35 @@
         <div class="detail-div">
             <img class="detail-img" src="{{ asset('storage/' . $product->product_img) }}" alt="{{ $product->name }}">
             <div class="detail-content">
-                @if (session('addToCart'))
-                    <div class="alert alert-success">
-                        {{ session('addToCart') }}
-                    </div>
-                @endif
+                @include('share.alerts')
                 <div>
                     <div class="detail-header">
                         <div class="detail-head">
                             <h3 class="detail-title">{{ $product->name }}</h3>
                             <h3 id="price" class="detail-price">MMK {{ $product->price }}</h3>
                         </div>
-                        <a href="" class="btn btn-outline-secondary"><i class="bi bi-heart"></i></a>
+                        @php
+                            use App\Models\Wish;
+                            $userId = Auth::id();
+                            $wishList = Wish::where('user_id', $userId)
+                                ->where('product_id', $product->id)
+                                ->first();
+                        @endphp
+                        @if ($wishList)
+                            <form action="{{ route('removeFromWish', ['id' => $product->id]) }}">
+                                @csrf
+                                <input type="hidden" name="product_id" value="{{ $product->id }}">
+                                <button type="submit" class="btn btn-outline-secondary"><i
+                                        class="bi bi-heart-fill text-danger"></i></button>
+                            </form>
+                        @else
+                            <form action="{{ route('addToWish', ['id' => $product->id]) }}" method="POST">
+                                @csrf
+                                <input type="hidden" name="product_id" value="{{ $product->id }}">
+                                <button type="submit" class="btn btn-outline-secondary"><i
+                                        class="bi bi-heart"></i></button>
+                            </form>
+                        @endif
                     </div>
                     <hr>
                     <p class="detail-des">{{ $product->description }}</p>

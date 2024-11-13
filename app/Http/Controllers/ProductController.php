@@ -73,7 +73,4 @@ class ProductController extends Controller
             'products' => $products,
         ]);
     }
-    public function showWish() {
-        return view('share.emptyWish');
-    }
 }

@@ -4,16 +4,20 @@
     @extends('layouts.app')
         @section('content')
             <div class="cart-section">
+                @include('share.alerts')
                 <h1 class="brand-text">Shopping Cart</h1>
                 <form action="" class="check-out-form">
                     @csrf
                     <div class="cart-items">
                         @foreach ($cartItems as $item)
                             <div class="cart-item">
-                                <img src="{{ asset('storage/' . $item->product_img) }}" alt="" class="cart-img">
+                                <img src="{{ asset('storage/' . $item->product_img) }}" alt="{{ $item->product_name }}" class="cart-img">
                                 <div class="cart-content">
                                     <p class="cart-item-product">Product:<span
                                             class="cart-span">{{ $item->product_name }}</span>
+                                    </p>
+                                    <p class="cart-item-product">Quantity:<span
+                                            class="cart-span">{{ $item->quantity }}</span>
                                     </p>
                                     {{-- <div class="cart-quantity">
                                     <p class="cart-item-quantity">Quantity:</p>

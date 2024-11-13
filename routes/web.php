@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\WishController;
 
 Route::get('/', [ProductController::class, 'index'])->name('name');
 Route::get('/products', [ProductController::class, 'allProducts'])->name('allProducts');
@@ -12,7 +13,9 @@ Route::get('/products/category/{id}', [ProductController::class, 'category'])->n
 Route::get('/products/gender/{id}', [ProductController::class, 'gender'])->name('gender');
 Route::get('/products/style/{id}', [ProductController::class, 'style'])->name('style');
 
-Route::get('/wishes', [ProductController::class, 'showWish'])->name('showWish');
+Route::get('/wishes', [WishController::class, 'wishList'])->name('wishList');
+Route::post('/wishes/add/{id}', [WishController::class, 'add'])->name('addToWish');
+Route::get('/wishes/remove/{id}', [WishController::class, 'remove'])->name('removeFromWish');
 
 Route::get('/carts', [CartController::class, 'showCart'])->name('showCart');
 Route::post('/carts/add', [CartController::class, 'add'])->name('addToCart');

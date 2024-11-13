@@ -20,4 +20,7 @@ class Product extends Model
     public function home() {
         return $this->belongsTo('App\Models\Home');
     }
+    public function wish() {
+        return $this->belongsTo('App\Models\Wish');
+    }
 }
